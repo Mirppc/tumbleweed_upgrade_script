@@ -12,10 +12,19 @@ zypper ar -f -c https://download.opensuse.org/repositories/X11:/XOrg/openSUSE_Tu
 zypper ar -f -c https://download.opensuse.org/repositories/hardware/openSUSE_Tumbleweed/ hardware
 zypper ar -f -c https://download.opensuse.org/repositories/Emulators/openSUSE_Tumbleweed/ emulators
 #refresh repositories getting GPG keys and package lists
-zypper ref -non-interactive
+zypper --gpg-auto-import-keys ref -non-interactive
 #upgrade zypper as this is importiant especialy on pre Leap based systems.  
 #Not doing this will result in an unstable system with no ability to fix the broken packages.
 #If this fails and Zypper breaks, use the tumbleweed DVD to do an upgrade.
 zypper up zypper libzypp
 #an alternitive would be to wget zypper and libzypp and fore install them with rpm -i --nodeps.
 #doing so may lead to a broken zypper if the original distro is too old.
+#Now refresh agian
+zypper ref
+#If that works out then gather the packages needed for a dup. 
+#This may fail due to curl and other dependencies, deal with those.
+zypper --download-only dup
+#Now refresh agian
+zypper ref
+#Do the dup with the cached packages
+zypper dup
