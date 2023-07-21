@@ -11,6 +11,7 @@ zypper ar -f -c http://download.opensuse.org/repositories/games/openSUSE_Tumblew
 zypper ar -f -c https://download.opensuse.org/repositories/utilities/openSUSE_Factory/ utilities
 zypper ar -f -c https://download.opensuse.org/repositories/hardware/openSUSE_Tumbleweed/ hardware
 zypper ar -f -c https://download.opensuse.org/repositories/Emulators/openSUSE_Tumbleweed/ emulators
+zypper ar -f -c http://codecs.opensuse.org/openh264/openSUSE_Tumbleweed openh264
 #refresh repositories getting GPG keys and package lists
 zypper --gpg-auto-import-keys ref -non-interactive
 #upgrade zypper as this is importiant especialy on pre Leap based systems.  
