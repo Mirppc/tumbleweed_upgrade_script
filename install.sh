@@ -1,4 +1,7 @@
 #!/bin/bash
+#Backup Repos
+mkdir /etc/zypp/repos.d/old #if not already made
+mv /etc/zypp/repos.d/*.repo /etc/zypp/repos.d/old
 #add repositories
 zypper ar -f -c http://download.opensuse.org/tumbleweed/repo/oss/ repo-oss
 zypper ar -f -c http://download.opensuse.org/tumbleweed/repo/non-oss/ repo-non-oss
